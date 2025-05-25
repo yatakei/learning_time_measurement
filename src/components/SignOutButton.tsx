@@ -1,21 +1,23 @@
-'use client'
-import { auth } from '@/lib/firebase/firebase'
-import React from 'react'
-import { useRouter } from 'next/router'
+'use client';
+import { auth } from '@/lib/firebase/firebase';
+import React, { useContext } from 'react';
+import { useRouter } from 'next/navigation';
+import { MyContext } from './Header';
 
+const SignOutButton: React.FC = () => {
+  const { setUser } = useContext(MyContext);
+  const router = useRouter();
+  const signOut = async () => {
+    await auth.signOut();
+    setUser('');
+    router.push('/');
+  };
 
-
-const signOut = async() => {
-  await auth.signOut();
-  push('/')
-}
-
-const SignOutButton = () => {
   return (
-    <button onClick={signOut}>
-      <p>サインアウト</p>
+    <button onClick={signOut} type="button">
+      サインアウト
     </button>
-  )
-}
+  );
+};
 
-export default SignOutButton
+export default SignOutButton;
