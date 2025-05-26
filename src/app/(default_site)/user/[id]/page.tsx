@@ -6,6 +6,7 @@ import { db } from '@/lib/firebase/firebase';
 import { MyContext } from '@/components/Header';
 
 interface Learning {
+  id: string;
   date: Timestamp;
   user_id: string;
   title: string;
@@ -24,16 +25,19 @@ const User = () => {
     const data = await collection(db, "learnings")
     const userAlldata = await query(data, where("user_id", "==", id));
     const userData = await getDocs(userAlldata);
-    const d = await userData.docs.map((doc) => doc.data()) as Learning[];
+    const d = await userData.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data()
+    })) as Learning[];
     setLearnings(d);
   };
-  fetchData();  
-  },[]);
+  fetchData();
+  }, []);
   console.log(learnings);
 
   return <div>
     {learnings?.map((learning) => (
-      <div key={learning.date.toDate().toISOString()}>
+      <div key={learning.id}>
         <h1>{learning.title}</h1>
         <p>{learning.description}</p>
         <p>{learning.hour}時間{learning.min}分</p>
