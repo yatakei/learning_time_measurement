@@ -1,4 +1,4 @@
-import { auth } from '@/lib/firebase/firebase';
+
 import React from 'react'
 
 const UserInfo = () => {

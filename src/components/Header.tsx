@@ -2,9 +2,18 @@
 import SignOutButton from '@/components/SignOutButton';
 import { auth } from '@/lib/firebase/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import { useEffect, useState, createContext, Dispatch, SetStateAction } from 'react';
+import {
+  useEffect,
+  useState,
+  createContext,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 
-export const MyContext = createContext<{user: string, setUser: Dispatch<SetStateAction<string>>}>({user: '', setUser: () => {}});
+export const MyContext = createContext<{
+  user: string;
+  setUser: Dispatch<SetStateAction<string>>;
+}>({ user: '', setUser: () => {} });
 
 export default function Header({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<string>('');
@@ -21,9 +30,9 @@ export default function Header({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <MyContext.Provider value={{user, setUser}}>
+      <MyContext.Provider value={{ user, setUser }}>
         <div>
-          header
+          headerlflflf
           <ul>
             {user ? (
               <>

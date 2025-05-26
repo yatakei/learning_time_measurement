@@ -18,7 +18,6 @@ const LoginButton = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user, user.uid);
-
         return user.uid;
         // ...
       })
