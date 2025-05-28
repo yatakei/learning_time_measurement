@@ -14,7 +14,7 @@ const SignOutButton: React.FC = () => {
   };
 
   return (
-    <button onClick={signOut} type="button">
+    <button onClick={signOut} type="button" className='text-red-600'>
       サインアウト
     </button>
   );

@@ -1,9 +1,9 @@
 'use client';
-import React, { use, useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { collection, getDocs, query, queryEqual, Timestamp, where } from 'firebase/firestore';
+import { collection, getDocs, query, Timestamp, where } from 'firebase/firestore';
 import { db } from '@/lib/firebase/firebase';
-import { MyContext } from '@/components/Header';
+
 
 interface Learning {
   id: string;
@@ -47,3 +47,5 @@ const User = () => {
 };
 
 export default User;
+
+

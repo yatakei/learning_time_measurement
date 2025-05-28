@@ -33,18 +33,22 @@ const LoginButton = () => {
       });
   };
   return (
-    <form action="" onSubmit={signInWithPassword}>
-      <span>メールアドレス</span>
-      <div>
-        <input type="text" onChange={(e) => setEmail(e.target.value)} />
-      </div>
 
-      <span>パスワード</span>
-      <div>
-        <input type="text" onChange={(e) => setPassword(e.target.value)} />
-      </div>
-      <button>ログイン</button>
-    </form>
+      <>
+        <form action="" onSubmit={signInWithPassword}>
+          <span>メールアドレス</span>
+          <div>
+            <input type="text" onChange={(e) => setEmail(e.target.value)} />
+          </div>
+
+          <span>パスワード</span>
+          <div>
+            <input type="text" onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <button>ログイン</button>
+        </form>
+        </>
+    
   );
 };
 
